@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  background: #f8f7f3;
+  color: #252525;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  color: #252525;
+}
+
+a {
+  color: inherit;
+}
