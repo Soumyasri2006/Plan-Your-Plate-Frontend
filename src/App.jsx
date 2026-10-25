@@ -227,7 +227,7 @@ const loadAllRecipes = async () => {
 
   try {
 
-    const response = await fetch("http://localhost:8080/api/recipes");
+    const response = await fetch("https://plan-your-plate-backend.onrender.com/api/recipes");
 
     if (!response.ok) {
 
@@ -273,7 +273,7 @@ const loadCookingHistory = async () => {
 
   try {
 
-    const response = await fetch("http://localhost:8080/api/cooking-history", {
+    const response = await fetch("https://plan-your-plate-backend.onrender.com/api/cooking-history", {
 
       headers: { Authorization: `Bearer ${token}` },
 
@@ -341,7 +341,7 @@ const markRecipeAsCooked = async () => {
 
     const response = await fetch(
 
-      `http://localhost:8080/api/cooking-history?recipeId=${selectedRecipe.id}`,
+      `https://plan-your-plate-backend.onrender.com/api/cooking-history?recipeId=${selectedRecipe.id}`,
 
       {
 
@@ -433,7 +433,7 @@ const loadMealPlans = async () => {
 
     const response = await fetch(
 
-      `http://localhost:8080/api/meal-plans?startDate=${planStartDate}&endDate=${formatDate(end)}`,
+      `https://plan-your-plate-backend.onrender.com/api/meal-plans?startDate=${planStartDate}&endDate=${formatDate(end)}`,
 
       {
 
@@ -523,7 +523,7 @@ const addMealPlan = async () => {
 
     const response = await fetch(
 
-      `http://localhost:8080/api/meal-plans?${params.toString()}`,
+      `https://plan-your-plate-backend.onrender.com/api/meal-plans?${params.toString()}`,
 
       {
 
@@ -579,7 +579,7 @@ const removeMealPlan = async (id) => {
 
     const response = await fetch(
 
-      `http://localhost:8080/api/meal-plans/${id}`,
+      `https://plan-your-plate-backend.onrender.com/api/meal-plans/${id}`,
 
       {
 
@@ -634,7 +634,7 @@ const removeMealPlan = async (id) => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/recommendations?ingredients=${encodeURIComponent(ingredients)}`
+        `https://plan-your-plate-backend.onrender.com/api/recommendations?ingredients=${encodeURIComponent(ingredients)}`
       );
 
       if (!response.ok) {
@@ -652,7 +652,7 @@ const removeMealPlan = async (id) => {
         : [];
 
       // Load the complete catalogue as well as the matching recommendations.
-      const allRecipesResponse = await fetch("http://localhost:8080/api/recipes");
+      const allRecipesResponse = await fetch("https://plan-your-plate-backend.onrender.com/api/recipes");
 
       if (!allRecipesResponse.ok) {
         throw new Error("Could not load the complete recipe list.");
@@ -707,7 +707,7 @@ const handleAuth = async (e) => {
 
     const response = await fetch(
 
-      `http://localhost:8080/api/auth/${endpoint}`,
+      `https://plan-your-plate-backend.onrender.com/api/auth/${endpoint}`,
 
       {
 
@@ -755,7 +755,7 @@ const handleAuth = async (e) => {
     // from /register. Log the new user in immediately so Favorites and other
     // authenticated features work without asking them to log in again.
     if (authMode === "register") {
-      const loginResponse = await fetch("http://localhost:8080/api/auth/login", {
+      const loginResponse = await fetch("https://plan-your-plate-backend.onrender.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: userEmail, password: userPassword }),
@@ -868,7 +868,7 @@ const viewRecipe = async (recipeId, missing = []) => {
 
     const recipeResponse = await fetch(
 
-      `http://localhost:8080/api/recipes/${recipeId}`
+      `https://plan-your-plate-backend.onrender.com/api/recipes/${recipeId}`
 
     );
 
@@ -890,9 +890,9 @@ const viewRecipe = async (recipeId, missing = []) => {
 
       await Promise.allSettled([
 
-        fetch("http://localhost:8080/api/recipe-ingredients"),
+        fetch("https://plan-your-plate-backend.onrender.com/api/recipe-ingredients"),
 
-        fetch(`http://localhost:8080/api/nutrition/${recipeId}`)
+        fetch(`https://plan-your-plate-backend.onrender.com/api/nutrition/${recipeId}`)
 
       ]);
 
@@ -1032,7 +1032,7 @@ try {
 
     const response = await fetch(
 
-      `http://localhost:8080/api/favorites/${selectedRecipe.id}`,
+      `https://plan-your-plate-backend.onrender.com/api/favorites/${selectedRecipe.id}`,
 
       {
 
@@ -1122,7 +1122,7 @@ const loadFavorites = async () => {
 
     const response = await fetch(
 
-      "http://localhost:8080/api/favorites",
+      "https://plan-your-plate-backend.onrender.com/api/favorites",
 
       {
 
@@ -1234,7 +1234,7 @@ const removeFavorite = async (favoriteId) => {
 
     const response = await fetch(
 
-      `http://localhost:8080/api/favorites/${favoriteId}`,
+      `https://plan-your-plate-backend.onrender.com/api/favorites/${favoriteId}`,
 
       {
 
@@ -1334,7 +1334,7 @@ const loadShoppingList = async () => {
 
     const response = await fetch(
 
-      "http://localhost:8080/api/shopping-list",
+      "https://plan-your-plate-backend.onrender.com/api/shopping-list",
 
       {
 
@@ -1472,7 +1472,7 @@ const addRecipeToShoppingList = async () => {
 
       const response = await fetch(
 
-        "http://localhost:8080/api/shopping-list",
+        "https://plan-your-plate-backend.onrender.com/api/shopping-list",
 
         {
 
@@ -1554,7 +1554,7 @@ const removeShoppingItem = async (itemId) => {
 
     const response = await fetch(
 
-      `http://localhost:8080/api/shopping-list/${itemId}`,
+      `https://plan-your-plate-backend.onrender.com/api/shopping-list/${itemId}`,
 
       {
 
